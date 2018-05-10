@@ -16,6 +16,7 @@ public class Recipe {
     private String source;
     private String url;
     private String direction;
+    @Enumerated(value = EnumType.STRING)
     private Difficulty difficulty;
     @Lob
     private Byte[] image;
@@ -23,6 +24,11 @@ public class Recipe {
     private Note note;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients;
+    @ManyToMany
+    @JoinTable(name = "recipe_category",
+            joinColumns = @JoinColumn(name = "recipe_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private Set<Category> categories;
 
     public Recipe() {
     }
@@ -135,5 +141,13 @@ public class Recipe {
 
     public void setNote(Note note) {
         this.note = note;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 }
