@@ -9,7 +9,7 @@ public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String description;
+    private String name;
     private BigDecimal amount;
     @OneToOne
     private UnitOfMeasure unitOfMeasure;
@@ -19,8 +19,8 @@ public class Ingredient {
     public Ingredient() {
     }
 
-    public Ingredient(String description, BigDecimal amount, UnitOfMeasure unitOfMeasure, Recipe recipe) {
-        this.description = description;
+    public Ingredient(String name, BigDecimal amount, UnitOfMeasure unitOfMeasure, Recipe recipe) {
+        this.name = name;
         this.amount = amount;
         this.unitOfMeasure = unitOfMeasure;
         this.recipe = recipe;
@@ -34,12 +34,12 @@ public class Ingredient {
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
+    public String getName() {
+        return name;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public BigDecimal getAmount() {

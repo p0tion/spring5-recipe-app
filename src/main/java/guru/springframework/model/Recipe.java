@@ -1,6 +1,7 @@
 package guru.springframework.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -15,6 +16,7 @@ public class Recipe {
     private Integer servings;
     private String source;
     private String url;
+    @Lob
     private String direction;
     @Enumerated(value = EnumType.STRING)
     private Difficulty difficulty;
@@ -144,6 +146,9 @@ public class Recipe {
     }
 
     public Set<Category> getCategories() {
+        if (categories == null) {
+            categories = new HashSet<>();
+        }
         return categories;
     }
 
