@@ -75,34 +75,32 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 "\n" +
                 "\n" +
                 "Read more: http://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/#ixzz4jvu7Q0MJ");
-        tacoNotes.setRecipe(tacosRecipe);
         tacosRecipe.setNote(tacoNotes);
-        tacosRecipe.setIngredients(fillIngredientsForTacos(tacosRecipe));
+        tacosRecipe= fillIngredientsForTacos(tacosRecipe);
         return tacosRecipe;
     }
 
-    private Set<Ingredient> fillIngredientsForTacos(Recipe recipe) {
-        Set<Ingredient> ingredients = new HashSet<>();
-        ingredients.add(new Ingredient("Ancho Chili Powder", new BigDecimal(2), unitOfMeasureMap.get("Tablespoon"), recipe));
-        ingredients.add(new Ingredient("Dried Oregano", new BigDecimal(1), unitOfMeasureMap.get("Teaspoon"), recipe));
-        ingredients.add(new Ingredient("Dried Cumin", new BigDecimal(1), unitOfMeasureMap.get("Teaspoon"), recipe));
-        ingredients.add(new Ingredient("Sugar", new BigDecimal(1), unitOfMeasureMap.get("Teaspoon"), recipe));
-        ingredients.add(new Ingredient("Salt", new BigDecimal(".5"), unitOfMeasureMap.get("Teaspoon"), recipe));
-        ingredients.add(new Ingredient("Clove of Garlic, Choppedr", new BigDecimal(1), unitOfMeasureMap.get("Each"), recipe));
-        ingredients.add(new Ingredient("finely grated orange zestr", new BigDecimal(1), unitOfMeasureMap.get("Tablespoon"), recipe));
-        ingredients.add(new Ingredient("fresh-squeezed orange juice", new BigDecimal(3), unitOfMeasureMap.get("Tablespoon"), recipe));
-        ingredients.add(new Ingredient("Olive Oil", new BigDecimal(2), unitOfMeasureMap.get("Tablespoon"), recipe));
-        ingredients.add(new Ingredient("boneless chicken thighs", new BigDecimal(4), unitOfMeasureMap.get("Tablespoon"), recipe));
-        ingredients.add(new Ingredient("small corn tortillas", new BigDecimal(8), unitOfMeasureMap.get("Each"), recipe));
-        ingredients.add(new Ingredient("packed baby arugula", new BigDecimal(3), unitOfMeasureMap.get("Cup"), recipe));
-        ingredients.add(new Ingredient("medium ripe avocados, slic", new BigDecimal(2), unitOfMeasureMap.get("Each"), recipe));
-        ingredients.add(new Ingredient("radishes, thinly sliced", new BigDecimal(4), unitOfMeasureMap.get("Each"), recipe));
-        ingredients.add(new Ingredient("cherry tomatoes, halved", new BigDecimal(".5"), unitOfMeasureMap.get("Pint"), recipe));
-        ingredients.add(new Ingredient("red onion, thinly sliced", new BigDecimal(".25"), unitOfMeasureMap.get("Each"), recipe));
-        ingredients.add(new Ingredient("Roughly chopped cilantro", new BigDecimal(4), unitOfMeasureMap.get("Each"), recipe));
-        ingredients.add(new Ingredient("cup sour cream thinned with 1/4 cup milk", new BigDecimal(4), unitOfMeasureMap.get("Cup"), recipe));
-        ingredients.add(new Ingredient("lime, cut into wedges", new BigDecimal(4), unitOfMeasureMap.get("Each"), recipe));
-        return ingredients;
+    private Recipe fillIngredientsForTacos(Recipe recipe) {
+        recipe.addIngridient(new Ingredient("Ancho Chili Powder", new BigDecimal(2), unitOfMeasureMap.get("Tablespoon")));
+        recipe.addIngridient(new Ingredient("Dried Oregano", new BigDecimal(1), unitOfMeasureMap.get("Teaspoon")));
+        recipe.addIngridient(new Ingredient("Dried Cumin", new BigDecimal(1), unitOfMeasureMap.get("Teaspoon")));
+        recipe.addIngridient(new Ingredient("Sugar", new BigDecimal(1), unitOfMeasureMap.get("Teaspoon")));
+        recipe.addIngridient(new Ingredient("Salt", new BigDecimal(".5"), unitOfMeasureMap.get("Teaspoon")));
+        recipe.addIngridient(new Ingredient("Clove of Garlic, Choppedr", new BigDecimal(1), unitOfMeasureMap.get("Each")));
+        recipe.addIngridient(new Ingredient("finely grated orange zestr", new BigDecimal(1), unitOfMeasureMap.get("Tablespoon")));
+        recipe.addIngridient(new Ingredient("fresh-squeezed orange juice", new BigDecimal(3), unitOfMeasureMap.get("Tablespoon")));
+        recipe.addIngridient(new Ingredient("Olive Oil", new BigDecimal(2), unitOfMeasureMap.get("Tablespoon")));
+        recipe.addIngridient(new Ingredient("boneless chicken thighs", new BigDecimal(4), unitOfMeasureMap.get("Tablespoon")));
+        recipe.addIngridient(new Ingredient("small corn tortillas", new BigDecimal(8), unitOfMeasureMap.get("Each")));
+        recipe.addIngridient(new Ingredient("packed baby arugula", new BigDecimal(3), unitOfMeasureMap.get("Cup")));
+        recipe.addIngridient(new Ingredient("medium ripe avocados, slic", new BigDecimal(2), unitOfMeasureMap.get("Each")));
+        recipe.addIngridient(new Ingredient("radishes, thinly sliced", new BigDecimal(4), unitOfMeasureMap.get("Each")));
+        recipe.addIngridient(new Ingredient("cherry tomatoes, halved", new BigDecimal(".5"), unitOfMeasureMap.get("Pint")));
+        recipe.addIngridient(new Ingredient("red onion, thinly sliced", new BigDecimal(".25"), unitOfMeasureMap.get("Each")));
+        recipe.addIngridient(new Ingredient("Roughly chopped cilantro", new BigDecimal(4), unitOfMeasureMap.get("Each")));
+        recipe.addIngridient(new Ingredient("cup sour cream thinned with 1/4 cup milk", new BigDecimal(4), unitOfMeasureMap.get("Cup")));
+        recipe.addIngridient(new Ingredient("lime, cut into wedges", new BigDecimal(4), unitOfMeasureMap.get("Each")));
+        return recipe;
     }
 
     private void findAllUnitOfMeasures() {
@@ -142,23 +140,21 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
                 "                \"\\n\" +\n" +
                 "                \"\\n\" +\n" +
                 "                \"Read more: http://www.simplyrecipes.com/recipes/perfect_guacamole/#ixzz4jvoun5ws");
-        note.setRecipe(perfectGuacamole);
         perfectGuacamole.setNote(note);
-        perfectGuacamole.setIngredients(fillIngredientsForGuacamole(perfectGuacamole));
+        perfectGuacamole = fillIngredientsForGuacamole(perfectGuacamole);
         return perfectGuacamole;
     }
 
-    private Set<Ingredient> fillIngredientsForGuacamole(Recipe recipe) {
-        Set<Ingredient> ingredients = new HashSet<>();
-        ingredients.add(new Ingredient("ripe avocados", new BigDecimal(2), unitOfMeasureMap.get("Each"), recipe));
-        ingredients.add(new Ingredient("Kosher salt", new BigDecimal(.5), unitOfMeasureMap.get("Teaspoon"), recipe));
-        ingredients.add(new Ingredient("of fresh lime juice or lemon juice", new BigDecimal(1), unitOfMeasureMap.get("Tablespoon"), recipe));
-        ingredients.add(new Ingredient("of minced red onion or thinly sliced green onion", new BigDecimal(2), unitOfMeasureMap.get("Tablespoon"), recipe));
-        ingredients.add(new Ingredient("serrano chiles, stems and seeds removed, minced", new BigDecimal(2), unitOfMeasureMap.get("Each"), recipe));
-        ingredients.add(new Ingredient("cilantro (leaves and tender stems), finely chopped", new BigDecimal(2), unitOfMeasureMap.get("Tablespoon"), recipe));
-        ingredients.add(new Ingredient("of freshly grated black pepper", new BigDecimal(2), unitOfMeasureMap.get("Dash"), recipe));
-        ingredients.add(new Ingredient("ripe tomato, seeds and pulp removed, chopped", new BigDecimal(.5), unitOfMeasureMap.get("Each"), recipe));
-        return ingredients;
+    private Recipe fillIngredientsForGuacamole(Recipe recipe) {
+        recipe.addIngridient(new Ingredient("ripe avocados", new BigDecimal(2), unitOfMeasureMap.get("Each")));
+        recipe.addIngridient(new Ingredient("Kosher salt", new BigDecimal(.5), unitOfMeasureMap.get("Teaspoon")));
+        recipe.addIngridient(new Ingredient("of fresh lime juice or lemon juice", new BigDecimal(1), unitOfMeasureMap.get("Tablespoon")));
+        recipe.addIngridient(new Ingredient("of minced red onion or thinly sliced green onion", new BigDecimal(2), unitOfMeasureMap.get("Tablespoon")));
+        recipe.addIngridient(new Ingredient("serrano chiles, stems and seeds removed, minced", new BigDecimal(2), unitOfMeasureMap.get("Each")));
+        recipe.addIngridient(new Ingredient("cilantro (leaves and tender stems), finely chopped", new BigDecimal(2), unitOfMeasureMap.get("Tablespoon")));
+        recipe.addIngridient(new Ingredient("of freshly grated black pepper", new BigDecimal(2), unitOfMeasureMap.get("Dash")));
+        recipe.addIngridient(new Ingredient("ripe tomato, seeds and pulp removed, chopped", new BigDecimal(.5), unitOfMeasureMap.get("Each")));
+        return recipe;
     }
 
     private byte[] readImage(String fileName) {
